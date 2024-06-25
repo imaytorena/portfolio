@@ -1,14 +1,8 @@
 "use client"
 
-import Link from 'next/link';
-import { useRouter } from "next/router";
-import { siteConfig } from '@/config/site';
-import { buttonVariants } from '@/components/ui/button';
-import getIntl from '@/components/intl/core';
-
 import { useIntl } from 'react-intl';
 
-export default  function IndexPage({ params: { locale } }: { params: { locale: string } }) {
+export default  function IndexPage() {
 	const { formatMessage } = useIntl();
 
 	return (<>
@@ -16,14 +10,10 @@ export default  function IndexPage({ params: { locale } }: { params: { locale: s
 				<div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
 					<div className="text-left">
 						<h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-							Javier Maytorena {formatMessage({ id: 'common.title' })}
+							{formatMessage({ id: 'me.name' })}
 						</h1>
 						<p className="mt-6 text-lg leading-8 ">
-							Web Developer with 5+ Years of Full-Stack experience.
-							<br />
-							Having extensive experience working with frameworks, APIs, and various development architectures.
-							<br />I am eager to learn new technologies and/or transition to the operational side of projects.
-
+							{formatMessage({ id: 'me.description'})}
 						</p>
 						<div className="mt-10 flex items-center justify-center gap-x-6">
 							<a
