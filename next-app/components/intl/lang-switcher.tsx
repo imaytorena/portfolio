@@ -1,11 +1,16 @@
 'use client';
 
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { useCurrentLocale } from 'next-i18n-router/client';
+import i18nConfig from '@/i18nConfig';
+import { ChangeEvent } from 'react';
+import { useIntl } from 'react-intl';
 import * as React from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import {
 	Command,
 	CommandEmpty,
@@ -19,68 +24,82 @@ import {
 	PopoverContent,
 	PopoverTrigger
 } from '@/components/ui/popover';
+import { Icons } from '@/components/icons';
 
-const frameworks = [
+const languages = [
 	{
-		value: 'en-US',
+		value: 'en',
 		label: '🇺🇸'
 	},
 	{
-		value: 'es-MX',
+		value: 'es',
 		label: '🇲🇽'
 	}
 ];
 
 export function LangSwitcher() {
 	const router = useRouter();
+	const currentPathname = usePathname();
+	const currentLocale = useCurrentLocale(i18nConfig);
+	const { formatMessage, locale } = useIntl();
+
+	const locales = [...i18nConfig.locales]
+
 	const [open, setOpen] = React.useState(false);
-	const [value, setValue] = React.useState('');
+
+	const handleChange = (currentValue: string) => {
+		const newLocale = currentValue;
+
+		// set cookie for next-i18n-router
+		const days = 30;
+		const date = new Date();
+		date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+		document.cookie = `NEXT_LOCALE=${newLocale};expires=${date.toUTCString()};path=/`;
+		setOpen(false);
+
+		if (
+			currentLocale === i18nConfig.defaultLocale && !i18nConfig.prefixDefault
+		) {
+			router.push('/' + newLocale + currentPathname);
+		} else {
+			router.push(
+				currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+			);
+		}
+
+		router.refresh();
+	};
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button
-					variant="outline"
+				<button
 					role="combobox"
 					aria-expanded={open}
-					className="w-[200px] justify-between"
+					className={buttonVariants({
+						size: 'icon',
+						variant: 'ghost'
+					})}
 				>
-					{value
-						? frameworks.find((framework) => framework.value === value)?.label
-						: ''}
-					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-				</Button>
+					{formatMessage({ id: `locale.${currentLocale}.icon` })}
+					<span className="sr-only">GitLab</span>
+				</button>
 			</PopoverTrigger>
-			<PopoverContent className="w-[200px] p-0">
+			<PopoverContent className="max-w-[130px] p-0">
 				<Command>
-					{/*<CommandInput placeholder="Search framework..." />*/}
+					{/*<CommandInput placeholder="Search language..." />*/}
 					<CommandList>
-						<CommandEmpty>No framework found.</CommandEmpty>
+						<CommandEmpty>No language found.</CommandEmpty>
 						<CommandGroup>
-							{frameworks.map((framework) => (
+							{locales.map((value) => (
 								<CommandItem
-									key={framework.value}
-									value={framework.value}
-									onSelect={(currentValue) => {
-										// router.push(
-										// 	{
-										// 		pathname: router.pathname,
-										// 		query: router.query,
-										// 	},
-										// 	null,
-										// 	{ locale: e.target.value }
-										// )
-										setValue(currentValue === value ? '' : currentValue);
-										setOpen(false);
-									}}
+									key={value}
+									value={value}
+									onSelect={handleChange}
+									className="flex justify-center gap-x-2"
 								>
-									<Check
-										className={cn(
-											'mr-2 h-4 w-4',
-											value === framework.value ? 'opacity-100' : 'opacity-0'
-										)}
-									/>
-									{framework.label}
+									<span>{formatMessage({ id: `locale.${value}.icon` })}</span>
+									<span>{formatMessage({ id: `locale.${value}.label` })}</span>
 								</CommandItem>
 							))}
 						</CommandGroup>

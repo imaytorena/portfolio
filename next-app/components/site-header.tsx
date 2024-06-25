@@ -6,6 +6,7 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { SheetDemo } from '@/components/left-nav';
+import { LangSwitcher } from '@/components/intl/lang-switcher';
 
 export function SiteHeader() {
   return (
@@ -45,6 +46,7 @@ export function SiteHeader() {
               </div>
             </Link>
             <ThemeToggle />
+            <LangSwitcher />
             <div className="sm:block md:hidden">
               <SheetDemo />
             </div>
