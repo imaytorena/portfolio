@@ -3,38 +3,55 @@
     "year": "año"
   },
   "site": {
-    "name": "jmaytorena",
-    "description": "Personal portfolio made by Javier Maytorena"
+    "name": "/jmaytorena",
+    "description": "Portafolio personal hecho por Javier Maytorena"
   },
   "locale": {
     "en": {
       "id": "en",
-      "label": "English",
+      "label": "Inglés",
       "icon": "🇺🇸"
     },
     "es": {
       "id": "es",
-      "label": "Spanish",
+      "label": "Español",
       "icon": "🇲🇽"
     }
   },
-  "links": {
-    "home": "Home",
-    "resume": "Resume",
-    "work": "Work",
-    "contact": "Contact"
+  "routes": {
+    "home": "Inicio",
+    "resume": "CV",
+    "work": "Trabajo",
+    "contact": "Contacto"
   },
-  "me": {
-    "name": "Javier Maytorena",
-    "age": 24,
-    "description": "Web Developer with 5+ Years of Full-Stack experience.Extensive experience working with web frameworks, APIs, and various development architectures.I am eager to learn new technologies and/or transition to the operational side of projects."
-  },
-  "work": {
-    "job": {
-      "cignuz": {
-        "name": "cignuz();",
-        "description": "Startup lorem ipsum idk...",
-        "time": "years"
+  "views": {
+    "home": {
+      "me": {
+        "name": "Javier Maytorena",
+        "age": 24,
+        "description": "Desarrollador web con más de 5 años de experiencia como full-stack. Gran experiencia trabajando con frameworks para desarrollo web, apis, y otras arquitecturas de desarrollo. Dispuesto a aprender nuevas tecnologías y/o pasar al lado operativo de los proyectos."
+      },
+      "buttons": {
+        "my_work": "Ver mi trabajo...",
+        "resume": "CV"
+      }
+    },
+    "resume": {
+      "subtitle": "Conoce más sobre mi trabajo",
+      "title": "Algunos de mis proyectos en mi CV",
+      "description": "",
+      "buttons": {
+        "download": "Descargar archivo",
+        "full_resume": "CV completo"
+      }
+    },
+    "work": {
+      "job": {
+        "cignuz": {
+          "name": "cignuz();",
+          "description": "Startup lorem ipsum idk...",
+          "time": "años"
+        }
       }
     }
   }

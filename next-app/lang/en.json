@@ -1,9 +1,9 @@
 {
   "common": {
-    "year": "año"
+    "year": "year"
   },
   "site": {
-    "name": "jmaytorena",
+    "name": "j.maytorena",
     "description": "Personal portfolio made by Javier Maytorena"
   },
   "locale": {
@@ -18,23 +18,40 @@
       "icon": "🇲🇽"
     }
   },
-  "links": {
+  "routes": {
     "home": "Home",
     "resume": "Resume",
     "work": "Work",
     "contact": "Contact"
   },
-  "me": {
-    "name": "Javier Maytorena",
-    "age": 24,
-    "description": "Web Developer with 5+ Years of Full-Stack experience.Extensive experience working with web frameworks, APIs, and various development architectures.I am eager to learn new technologies and/or transition to the operational side of projects."
-  },
-  "work": {
-    "job": {
-      "cignuz": {
-        "name": "cignuz();",
-        "description": "Startup lorem ipsum idk...",
-        "time": "years"
+  "views": {
+    "home": {
+      "me": {
+        "name": "Javier Maytorena",
+        "age": 24,
+        "description": "Web Developer with 5+ Years of Full-Stack experience.Extensive experience working with web frameworks, APIs, and various development architectures. I am eager to learn new technologies and/or transition to the operational side of projects."
+      },
+      "buttons": {
+        "my_work": "See at my work...",
+        "resume": "Resume"
+      }
+    },
+    "resume": {
+      "subtitle": "Know more about my work",
+      "title": "See at some projects on my resume",
+      "description": "I like you to check my resume and you could see at my skills and experiences, maybe I can be a good fit for your team. Be confident and make sure my resume is clear and easy to read. <italic>Your feedback will help me improve a lot!</italic>",
+      "buttons": {
+        "download": "Download File",
+        "full_resume": "Full Resume"
+      }
+    },
+    "work": {
+      "job": {
+        "cignuz": {
+          "name": "cignuz();",
+          "description": "Startup lorem ipsum idk...",
+          "time": "years"
+        }
       }
     }
   }

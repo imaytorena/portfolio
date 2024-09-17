@@ -21,7 +21,7 @@ services:
       - /app/.next # <-- creates the .next folder in frontend path
     restart: always
     ports:
-      - "3000:3000"
+      - "3080:3000"
     networks:
       - my_network
 # Define a network, which allows containers to communicate

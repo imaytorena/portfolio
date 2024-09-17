@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Viewport } from 'next';
 import { siteConfig } from '@/config/site';
 import React from 'react';
-import { SheetDemo } from '@/components/left-nav';
+import { SheetDemo } from '@/components/nav/left-nav';
 
 export const metadata: {
 	themeColor: ({ color: string; media: string })[];
