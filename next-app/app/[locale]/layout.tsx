@@ -14,7 +14,6 @@ export const metadata: {
 	themeColor: ({ color: string; media: string })[];
 	description: string;
 	title: { template: string; default: string };
-	icons: { apple: string; shortcut: string; icon: string }
 } = {
 	title: {
 		default: siteConfig.name,
@@ -24,12 +23,7 @@ export const metadata: {
 	themeColor: [
 		{ media: '(prefers-color-scheme: light)', color: 'white' },
 		{ media: '(prefers-color-scheme: dark)', color: 'black' }
-	],
-	icons: {
-		icon: '/favicon.ico',
-		shortcut: '/favicon-16x16.png',
-		apple: '/apple-touch-icon.png'
-	}
+	]
 };
 
 interface RootLayoutProps {

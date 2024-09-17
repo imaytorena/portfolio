@@ -4,18 +4,14 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useCurrentLocale } from 'next-i18n-router/client';
 import i18nConfig from '@/i18nConfig';
-import { ChangeEvent } from 'react';
 import { useIntl } from 'react-intl';
 import * as React from 'react';
-import { Check, ChevronsUpDown } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
-import { Button, buttonVariants } from '@/components/ui/button';
+import {  buttonVariants } from '@/components/ui/button';
 import {
 	Command,
 	CommandEmpty,
 	CommandGroup,
-	CommandInput,
 	CommandItem,
 	CommandList
 } from '@/components/ui/command';
@@ -24,18 +20,11 @@ import {
 	PopoverContent,
 	PopoverTrigger
 } from '@/components/ui/popover';
-import { Icons } from '@/components/icons';
 
-const languages = [
-	{
-		value: 'en',
-		label: '🇺🇸'
-	},
-	{
-		value: 'es',
-		label: '🇲🇽'
-	}
-];
+const language_icons = {
+	'en': '🇺🇸',
+	'es': '🇲🇽'
+};
 
 export function LangSwitcher() {
 	const router = useRouter();
@@ -43,7 +32,7 @@ export function LangSwitcher() {
 	const currentLocale = useCurrentLocale(i18nConfig);
 	const { formatMessage, locale } = useIntl();
 
-	const locales = [...i18nConfig.locales]
+	const locales = [...i18nConfig.locales];
 
 	const [open, setOpen] = React.useState(false);
 
@@ -58,7 +47,7 @@ export function LangSwitcher() {
 		setOpen(false);
 
 		if (
-			currentLocale === i18nConfig.defaultLocale && !i18nConfig.prefixDefault
+			currentLocale === i18nConfig.defaultLocale && !i18nConfig.prefixDefault && currentLocale !== newLocale
 		) {
 			router.push('/' + newLocale + currentPathname);
 		} else {
@@ -77,17 +66,14 @@ export function LangSwitcher() {
 					role="combobox"
 					aria-expanded={open}
 					className={buttonVariants({
-						size: 'icon',
 						variant: 'ghost'
 					})}
 				>
-					{formatMessage({ id: `locale.${currentLocale}.icon` })}
-					<span className="sr-only">GitLab</span>
+					<span>{formatMessage({ id: `locale.current` })}</span>
 				</button>
 			</PopoverTrigger>
 			<PopoverContent className="max-w-[130px] p-0">
 				<Command>
-					{/*<CommandInput placeholder="Search language..." />*/}
 					<CommandList>
 						<CommandEmpty>No language found.</CommandEmpty>
 						<CommandGroup>
@@ -98,7 +84,7 @@ export function LangSwitcher() {
 									onSelect={handleChange}
 									className="flex justify-center gap-x-2"
 								>
-									<span>{formatMessage({ id: `locale.${value}.icon` })}</span>
+									<span>{language_icons[value]}</span>
 									<span>{formatMessage({ id: `locale.${value}.label` })}</span>
 								</CommandItem>
 							))}

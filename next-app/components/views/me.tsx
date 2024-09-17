@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useIntl } from 'react-intl';
 import { siteConfig } from '@/config/site';
-import { Text, Braces } from 'lucide-react';
+import { FileText, Braces } from 'lucide-react';
 
 export const Me = () => {
 	const { formatMessage } = useIntl();
@@ -19,13 +19,13 @@ export const Me = () => {
 				</p>
 				<div className="mt-10 flex items-center justify-center gap-x-6">
 					<Link
-						href="/work"
-						className="flex items-center gap-1 rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
+						href="/projects"
+						className="flex items-center gap-1 rounded-md bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
 					>
 						<span aria-hidden="true"><Braces className="w-4" /></span>{formatMessage({ id: 'views.home.buttons.my_work' })}
 					</Link>
 					<Link href="/resume/" className="flex items-center gap-1 text-sm font-semibold leading-6">
-						<span aria-hidden="true"><Text className="w-4" /></span> {formatMessage({ id: 'views.home.buttons.resume' })} <span aria-hidden="true">→</span>
+						<span aria-hidden="true"><FileText className="w-4" /></span> {formatMessage({ id: 'views.home.buttons.resume' })} <span aria-hidden="true">→</span>
 					</Link>
 				</div>
 			</div>

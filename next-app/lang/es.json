@@ -3,10 +3,11 @@
     "year": "año"
   },
   "site": {
-    "name": "/jmaytorena",
+    "name": "Javier Maytorena",
     "description": "Portafolio personal hecho por Javier Maytorena"
   },
   "locale": {
+    "current": "🇲🇽 Español",
     "en": {
       "id": "en",
       "label": "Inglés",
@@ -21,38 +22,31 @@
   "routes": {
     "home": "Inicio",
     "resume": "CV",
-    "work": "Trabajo",
+    "projects": "Proyectos",
     "contact": "Contacto"
   },
   "views": {
     "home": {
       "me": {
-        "name": "Javier Maytorena",
+        "name": "Fullstack Developer",
         "age": 24,
-        "description": "Desarrollador web con más de 5 años de experiencia como full-stack. Gran experiencia trabajando con frameworks para desarrollo web, apis, y otras arquitecturas de desarrollo. Dispuesto a aprender nuevas tecnologías y/o pasar al lado operativo de los proyectos."
+        "description": "Hola, soy Javier Maytorena. Actualmente desarrollador web con más de 5 años de experiencia como full-stack. Gran experiencia trabajando con frameworks para desarrollo web, apis, y otras arquitecturas de desarrollo. Dispuesto a aprender nuevas tecnologías y/o pasar al lado operativo de los proyectos."
       },
       "buttons": {
         "my_work": "Ver mi trabajo...",
-        "resume": "CV"
+        "resume": "Curriculum Vitae"
       }
     },
     "resume": {
       "subtitle": "Conoce más sobre mi trabajo",
-      "title": "Algunos de mis proyectos en mi CV",
-      "description": "",
+      "title": "Mi carrera como desarrollador web",
+      "description": "Te invito a revisar mi curriculum, donde plasmo algo de mi experiencia laboral, algunas de mis habilidades y proyectos en los que he trabajado. {br}<italic>Si tienes algún comentario, puedes contactarme para cualquier duda</italic>",
       "buttons": {
         "download": "Descargar archivo",
-        "full_resume": "CV completo"
-      }
-    },
-    "work": {
-      "job": {
-        "cignuz": {
-          "name": "cignuz();",
-          "description": "Startup lorem ipsum idk...",
-          "time": "años"
-        }
-      }
+        "full_resume": "Ver Curriculum completo"
+      },
+      "h2": "Curriculum Vitae",
+      "h3": "Breve resumen de los proyectos y empresas en las que me he desempeñado"
     }
   }
 }

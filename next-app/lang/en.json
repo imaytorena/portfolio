@@ -3,10 +3,11 @@
     "year": "year"
   },
   "site": {
-    "name": "j.maytorena",
-    "description": "Personal portfolio made by Javier Maytorena"
+    "name": "Javier Maytorena",
+    "description": "Personal portfolio"
   },
   "locale": {
+    "current": "🇺🇸 English",
     "en": {
       "id": "en",
       "label": "English",
@@ -21,7 +22,7 @@
   "routes": {
     "home": "Home",
     "resume": "Resume",
-    "work": "Work",
+    "projects": "Projects",
     "contact": "Contact"
   },
   "views": {
@@ -43,16 +44,8 @@
       "buttons": {
         "download": "Download File",
         "full_resume": "Full Resume"
-      }
-    },
-    "work": {
-      "job": {
-        "cignuz": {
-          "name": "cignuz();",
-          "description": "Startup lorem ipsum idk...",
-          "time": "years"
-        }
-      }
+      },
+      "h2": "Resume"
     }
   }
 }

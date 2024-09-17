@@ -10,7 +10,7 @@ import { LangSwitcher } from '@/components/intl/lang-switcher';
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-rose-400 bg-background">
+    <header className="sticky top-0 z-40 w-full border-b border-teal-400 bg-background">
         <MainNav />
       </header>
   )

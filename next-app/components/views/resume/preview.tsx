@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { Code, Text } from 'lucide-react';
+import { Code, FileText } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 
@@ -23,13 +23,12 @@ export const ResumePreview: () => React.ReactNode = () => {
 				</h3>
 			</div>
 			<div className="mt-6 text-right text-lg leading-8">
-
 				<p className="mt-6 text-lg leading-8">
-					{formatMessage({ id: 'views.resume.description' }, { 'italic': str => <i>{str}</i> })}
+					{formatMessage({ id: 'views.resume.description' }, { 'italic': str => <i>{str}</i>, 'br': <br/> })}
 				</p>
 				<div className="mt-10 flex items-center justify-end gap-x-6">
 					<Link href="/resume/" className="flex items-center gap-1 text-sm font-semibold leading-6">
-						<span aria-hidden="true"><Text className="w-4" /></span>
+						<span aria-hidden="true"><FileText className="w-4" /></span>
 						{formatMessage({ id: 'views.resume.buttons.full_resume' })}
 						<span aria-hidden="true">→</span>
 					</Link>
