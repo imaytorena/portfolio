@@ -75,7 +75,7 @@ jobs:
       - name: Install dependencies
         run: cd ${{ github.workspace }}/next-app/ && npm install --no-package-lock
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: cd ${{ github.workspace }}/next-app/ && ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
