@@ -5,7 +5,11 @@ const nextConfig = {
 
 		return config;
 	},
-	reloadOnPrerender: process.env.NODE_ENV === "development"
+	reloadOnPrerender: process.env.NODE_ENV === "development",
+
+	output: "export",
+	reactStrictMode: true,
+
 };
 
 export default nextConfig;
